@@ -30,7 +30,7 @@ void PanasonicACWLAN::loop() {
     log_packet(this->rx_buffer_);
 
     if (!verify_packet())  // Verify length, header, counter and checksum
-      return;
+      //return;
 
     this->waiting_for_response_ =
         false;  // Set that we are not waiting for a response anymore since we received a valid one
@@ -650,6 +650,7 @@ void PanasonicACWLAN::send_set_command() {
   if (packet[12] == 0x31) {
     packet[11] = 0x02;
   }
+
   send_packet(packet, CommandType::Normal);
   this->set_queue_index_ = 0;
 }
