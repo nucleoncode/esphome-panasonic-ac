@@ -71,6 +71,13 @@ SCHEMA = climate.CLIMATE_SCHEMA.extend(
             device_class=DEVICE_CLASS_TEMPERATURE,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
+        cv.Optional(CONF_CURRENT_TEMPERATURE_SENSOR): cv.use_id(sensor.Sensor),
+        cv.Optional(CONF_CURRENT_POWER_CONSUMPTION): sensor.sensor_schema(
+            unit_of_measurement=UNIT_WATT,
+            accuracy_decimals=0,
+            device_class=DEVICE_CLASS_POWER,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
         cv.Optional(CONF_NANOEX_SWITCH): SWITCH_SCHEMA,
     }
 ).extend(uart.UART_DEVICE_SCHEMA)
