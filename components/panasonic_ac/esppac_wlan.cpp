@@ -650,7 +650,7 @@ void PanasonicACWLAN::send_set_command() {
   }
 
   if (packet[12] == 0x31) {
-    //packet[11] = 0x02;
+    packet[11] = 0x02;
   }
 
   send_packet(packet, CommandType::Normal);
