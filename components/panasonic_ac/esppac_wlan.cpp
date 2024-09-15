@@ -551,7 +551,8 @@ void PanasonicACWLAN::handle_packet() {
 
 void PanasonicACWLAN::handle_handshake_packet() {
   
-  ESP_LOGD(TAG, "Handshake buffer size: " + String(this->rx_buffer_.size()));
+  ESP_LOGD(TAG, "Handshake buffer size");
+  ESP_LOGD(TAG, this->rx_buffer_.size());
   if (this->rx_buffer_[2] == 0x00 && this->rx_buffer_[3] == 0x89)  // Answer for handshake 2
   {
     ESP_LOGD(TAG, "Answering handshake [2/16]");
